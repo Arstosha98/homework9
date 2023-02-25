@@ -1,36 +1,65 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         task1();
         task2();
         task3();
         task4();
-        task5();
-        task6();
-        task7();
-        task8();
     }
-    public static void task1() {
+    //Для каждой задачи
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
+    public static void task1 () {
         System.out.println("Задание 1");
+        int [] arr = generateRandomArray();
+        int sum = 0;
+        for (int element : arr) {
+            sum += element;
+        }
+        System.out.println("Сумма трат за месяц составила " + sum + " рублей");
     }
-    public static void task2() {
+    // исправить
+    public static void task2 () {
         System.out.println("Задание 2");
+        int [] arr = generateRandomArray();
+        System.out.println(Arrays.toString(arr));
+
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int j : arr) {
+            if (j > max) {
+                max = j;
+            }
+            if (j < min) {
+                min = j;
+            }
+        }
+        System.out.println("Максимальная сумма трат за день составила " + max + " рублей");
+        System.out.println("Минимальная сумма трат за день составила " + min + " рублей");
     }
-    public static void task3() {
+
+    public static void task3 () {
         System.out.println("Задание 3");
+        int [] arr = generateRandomArray();
+        int sum = 0;
+        for (int i = 0; i < arr.length ; i++) {
+            sum += arr[i];
+        }
+        int average = sum / arr.length;
+        System.out.println("Средняя сумма трат за месяц составила " + average + " рублей");
     }
-    public static void task4() {
+    public static void task4 () {
         System.out.println("Задание 4");
-    }
-    public static void task5() {
-        System.out.println("Задание 5");
-    }
-    public static void task6() {
-        System.out.println("Задание 6");
-    }
-    public static void task7() {
-        System.out.println("Задание 7");
-    }
-    public static void task8() {
-        System.out.println("Задание 8");
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int i = reverseFullName.length - 1; i >= 0 ; i--) {
+            System.out.print(reverseFullName[i]);
+        }
     }
 }
